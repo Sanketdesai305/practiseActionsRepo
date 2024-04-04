@@ -1,0 +1,28 @@
+name: myWorkFlow
+on: push
+  jobs:
+    job1:
+      name: myFirstJob
+      runs-on: windows-latest
+      steps: 
+      - name: PrintDate
+      run: date
+    job2:
+      name: myScondJob
+      runs-on: ubuntu-latest
+      steps:
+      - name: PrintDate
+      run: date
+    job3:
+      name: myThirdJob
+      runs-on: macos-latest
+      steps:
+      - name: PrintDate
+      run: date
+    job4:
+      name: fouthJob
+      needs: [job1,job2,job3]
+      runs-on: macos-latest
+      steps: 
+      - name: printfinaldate
+      run: date
